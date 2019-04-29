@@ -36,7 +36,10 @@ dependencies {
     implementation 'com.arello-mobile:moxy-android:1.5.3'
     implementation 'com.arello-mobile:moxy-app-compat:1.5.3'
 
-    implementation('com.vk:androidsdk:1.6.5') {
+    implementation('com.vk:androidsdk:1.6.5') { // Для работы с appcompact 7 28
         exclude group: "com.android.support"
     }
+
+    implementation 'com.google.dagger:dagger:2.9'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.9'
 }
