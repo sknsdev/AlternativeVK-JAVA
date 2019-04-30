@@ -11,6 +11,7 @@ import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
 import com.vlasov.alternativevk.CurrentUser;
+import com.vlasov.alternativevk.MyApplication;
 import com.vlasov.alternativevk.NewsFeedFragment;
 import com.vlasov.alternativevk.R;
 import com.vlasov.alternativevk.consts.ApiConstants;
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MyApplication.getsApplicationComponent().inject(this);
         //setContentView(R.layout.activity_main);
         Toast.makeText(this, "Access token equal: " + CurrentUser.getAccessToken(),Toast.LENGTH_LONG).show();
         mPresenter.checkAuth();

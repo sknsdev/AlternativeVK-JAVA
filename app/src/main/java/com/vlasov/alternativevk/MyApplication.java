@@ -18,11 +18,16 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        initComponent();
         VKSdk.initialize(this);
     }
 
     private void initComponent(){
         sApplicationComponent = DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
+    }
+
+    public static ApplicationComponent getsApplicationComponent(){
+        return sApplicationComponent;
     }
 
 }
