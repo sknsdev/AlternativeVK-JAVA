@@ -3,6 +3,7 @@ package com.vlasov.alternativevk.di.module;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Typeface;
 
 import javax.inject.Singleton;
 
@@ -23,6 +24,11 @@ public class ApplicationModule {
     @Provides //показывает, что объект нужен для внедрения зависимости, для будущего инжекта
     public Context provideContext(){
         return mApplication;
+    }
+    @Singleton
+    @Provides
+    Typeface provideGoogleTypeFace(Context context){
+        return Typeface.createFromAsset(context.getAssets(),"MaterialIcons-regular.ttf");
     }
 
 }
