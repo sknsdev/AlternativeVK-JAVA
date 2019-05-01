@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.vlasov.alternativevk.rest.api.WallApi;
+import com.vlasov.alternativevk.rest.model.request.WallGetRequestModel;
 import com.vlasov.alternativevk.rest.model.response.BaseItemResponse;
 import com.vlasov.alternativevk.rest.model.response.Full;
+import com.vlasov.alternativevk.rest.model.response.WallGetResponse;
 import com.vlasov.alternativevk.ui.fragment.BaseFragment;
 
 import javax.inject.Inject;
@@ -45,14 +47,14 @@ public class NewsFeedFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mWallApi.get("-86529522", CurrentUser.getAccessToken(), 1,"5.95").enqueue(new Callback<Full<BaseItemResponse>>() {
+        mWallApi.get(new WallGetRequestModel(-86529522).toMap()).enqueue(new Callback<WallGetResponse>() {
             @Override
-            public void onResponse(Call<Full<BaseItemResponse>> call, Response<Full<BaseItemResponse>> response) {
-                Toast.makeText(getActivity(), "Count: "+ response.body().response.getCount(), Toast.LENGTH_LONG).show();
+            public void onResponse(Call<WallGetResponse> call, Response<WallGetResponse> response) {
+                Toast.makeText(getActivity(), "likes: "+ response.body().response.getItems().get(0).getLikes().getCount(), Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onFailure(Call<Full<BaseItemResponse>> call, Throwable t) {
+            public void onFailure(Call<WallGetResponse> call, Throwable t) {
                 t.printStackTrace();
             }
         });
