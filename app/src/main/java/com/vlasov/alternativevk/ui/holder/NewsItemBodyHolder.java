@@ -5,9 +5,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.vlasov.alternativevk.R;
-import com.vlasov.alternativevk.model.view.NewsFeedItemBodyViewModel;
 
-public class NewsItemBodyHolder extends BaseViewHolder<NewsFeedItemBodyViewModel> {
+import com.vlasov.alternativevk.model.view.NewsFeedItemBody;
+
+public class NewsItemBodyHolder extends BaseViewHolder<NewsFeedItemBody> {
 
     public TextView mText;
 
@@ -19,7 +20,7 @@ public class NewsItemBodyHolder extends BaseViewHolder<NewsFeedItemBodyViewModel
     }
 
     @Override
-    public void bindViewHolder(NewsFeedItemBodyViewModel item) {
+    public void bindViewHolder(NewsFeedItemBody item) {
         mText.setText(item.getText());
     }
 

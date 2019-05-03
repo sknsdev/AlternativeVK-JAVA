@@ -24,6 +24,9 @@ public class Group {
     @SerializedName("is_admin")
     @Expose
     private Integer isAdmin;
+    @SerializedName("admin_level")
+    @Expose
+    private Integer adminLevel;
     @SerializedName("is_member")
     @Expose
     private Integer isMember;
@@ -86,6 +89,14 @@ public class Group {
 
     public void setIsAdmin(Integer isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public Integer getAdminLevel() {
+        return adminLevel;
+    }
+
+    public void setAdminLevel(Integer adminLevel) {
+        this.adminLevel = adminLevel;
     }
 
     public Integer getIsMember() {

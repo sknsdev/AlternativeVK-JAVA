@@ -15,6 +15,9 @@ public class Comments {
     @SerializedName("groups_can_post")
     @Expose
     private Boolean groupsCanPost;
+    @SerializedName("can_close")
+    @Expose
+    private Integer canClose;
 
     public Integer getCount() {
         return count;
@@ -38,6 +41,14 @@ public class Comments {
 
     public void setGroupsCanPost(Boolean groupsCanPost) {
         this.groupsCanPost = groupsCanPost;
+    }
+
+    public Integer getCanClose() {
+        return canClose;
+    }
+
+    public void setCanClose(Integer canClose) {
+        this.canClose = canClose;
     }
 
 }

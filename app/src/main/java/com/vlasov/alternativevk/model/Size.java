@@ -6,25 +6,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class Size {
 
-    @SerializedName("src")
+    @SerializedName("type")
     @Expose
-    private String src;
+    private String type;
+    @SerializedName("url")
+    @Expose
+    private String url;
     @SerializedName("width")
     @Expose
     private Integer width;
     @SerializedName("height")
     @Expose
     private Integer height;
-    @SerializedName("type")
-    @Expose
-    private String type;
 
-    public String getSrc() {
-        return src;
+    public String getType() {
+        return type;
     }
 
-    public void setSrc(String src) {
-        this.src = src;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Integer getWidth() {
@@ -41,14 +49,6 @@ public class Size {
 
     public void setHeight(Integer height) {
         this.height = height;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
 }

@@ -1,18 +1,21 @@
 package com.vlasov.alternativevk.model.view;
 
+import android.text.Layout;
 import android.view.View;
 
 import com.vlasov.alternativevk.model.WallItem;
+import com.vlasov.alternativevk.ui.holder.BaseViewHolder;
 import com.vlasov.alternativevk.ui.holder.NewsItemBodyHolder;
 
-public class NewsFeedItemBodyViewModel extends BaseViewModel {
-    private int mId;
+public class NewsFeedItemBody extends BaseViewModel {
 
+    private int mId;
     private String mText;
 
-    public NewsFeedItemBodyViewModel(WallItem wallItem) {
+    public NewsFeedItemBody(WallItem wallItem){
         this.mId = wallItem.getId();
         this.mText = wallItem.getText();
+
     }
 
 
@@ -22,16 +25,16 @@ public class NewsFeedItemBodyViewModel extends BaseViewModel {
     }
 
     @Override
-    public NewsItemBodyHolder onCreateViewHolder(View view) {
+    protected BaseViewHolder onCreateViewHolder(View view) {
         return new NewsItemBodyHolder(view);
     }
 
 
-    public String getText() {
-        return mText;
-    }
-
     public int getId() {
         return mId;
+    }
+
+    public String getText() {
+        return mText;
     }
 }
