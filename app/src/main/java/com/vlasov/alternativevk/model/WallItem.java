@@ -1,11 +1,18 @@
 
 package com.vlasov.alternativevk.model;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.vlasov.alternativevk.model.attachment.apiAttachment;
 
 public class WallItem {
+    private String attachmentsString;
+    private String senderName;
+    private String senderPhoto;
+
 
     @SerializedName("id")
     @Expose
@@ -30,7 +37,8 @@ public class WallItem {
     private String text;
     @SerializedName("copy_history")
     @Expose
-    private List<CopyHistory> copyHistory = null;
+    private List<WallItem> copyHistory = new ArrayList<>();
+
     @SerializedName("can_edit")
     @Expose
     private Integer canEdit;
@@ -43,9 +51,13 @@ public class WallItem {
     @SerializedName("can_pin")
     @Expose
     private Integer canPin;
-    @SerializedName("post_source")
+
+    @SerializedName("attachments")
     @Expose
-    private PostSource_ postSource;
+    private List<apiAttachment> attachments = new ArrayList<>();
+ // @SerializedName("post_source")
+ // @Expose
+ // private PostSource_ postSource;
     @SerializedName("comments")
     @Expose
     private Comments comments;
@@ -118,13 +130,23 @@ public class WallItem {
         this.text = text;
     }
 
-    public List<CopyHistory> getCopyHistory() {
-        return copyHistory;
+
+    public List<apiAttachment> getAttachments() {
+        return attachments;
     }
 
-    public void setCopyHistory(List<CopyHistory> copyHistory) {
-        this.copyHistory = copyHistory;
+    public void setAttachments(List<apiAttachment> attachments) {
+        this.attachments = attachments;
     }
+
+
+    // public List<CopyHistory> getCopyHistory() {
+   //     return copyHistory;
+   // }
+//
+   // public void setCopyHistory(List<CopyHistory> copyHistory) {
+   //     this.copyHistory = copyHistory;
+   // }
 
     public Integer getCanEdit() {
         return canEdit;
@@ -158,13 +180,13 @@ public class WallItem {
         this.canPin = canPin;
     }
 
-    public PostSource_ getPostSource() {
-        return postSource;
-    }
-
-    public void setPostSource(PostSource_ postSource) {
-        this.postSource = postSource;
-    }
+ //   public PostSource_ getPostSource() {
+ //       return postSource;
+ //   }
+//
+ //   public void setPostSource(PostSource_ postSource) {
+  //      this.postSource = postSource;
+  //  }
 
     public Comments getComments() {
         return comments;
@@ -206,4 +228,39 @@ public class WallItem {
         this.isFavorite = isFavorite;
     }
 
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public String getSenderPhoto() {
+        return senderPhoto;
+    }
+
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public void setSenderPhoto(String senderPhoto) {
+        this.senderPhoto = senderPhoto;
+    }
+
+    public boolean haveSharedRepost() {
+        return copyHistory.size() > 0;
+    }
+
+    public WallItem getSharedRepost() {
+        if (haveSharedRepost()) {
+            return copyHistory.get(0);
+        }
+        return null;
+    }
+
+    public String getAttachmentsString() {
+        return attachmentsString;
+    }
+
+    public void setAttachmentsString(String attachmentsString) {
+        this.attachmentsString = attachmentsString;
+    }
 }

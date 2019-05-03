@@ -8,7 +8,10 @@ public class RestClient {
     private Retrofit mRetrofit;
 
     public RestClient(){
-        mRetrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(VK_BASE_URL).build();
+        mRetrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(VK_BASE_URL)
+                .build();
     }
 
 

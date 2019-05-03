@@ -30,7 +30,7 @@ public class Item {
     private String text;
     @SerializedName("copy_history")
     @Expose
-    private List<CopyHistory> copyHistory = null;
+    private List<WallItem> copyHistory = null;
     @SerializedName("can_edit")
     @Expose
     private Integer canEdit;
@@ -43,9 +43,9 @@ public class Item {
     @SerializedName("can_pin")
     @Expose
     private Integer canPin;
-    @SerializedName("post_source")
-    @Expose
-    private PostSource_ postSource;
+   // @SerializedName("post_source")
+   // @Expose
+   // private PostSource_ postSource;
     @SerializedName("comments")
     @Expose
     private Comments comments;
@@ -118,11 +118,11 @@ public class Item {
         this.text = text;
     }
 
-    public List<CopyHistory> getCopyHistory() {
+    public List<WallItem> getCopyHistory() {
         return copyHistory;
     }
 
-    public void setCopyHistory(List<CopyHistory> copyHistory) {
+    public void setCopyHistory(List<WallItem> copyHistory) {
         this.copyHistory = copyHistory;
     }
 
@@ -158,13 +158,13 @@ public class Item {
         this.canPin = canPin;
     }
 
-    public PostSource_ getPostSource() {
-        return postSource;
-    }
+ //  public PostSource_ getPostSource() {
+ //      return postSource;
+ //  }
 
-    public void setPostSource(PostSource_ postSource) {
-        this.postSource = postSource;
-    }
+ //  public void setPostSource(PostSource_ postSource) {
+ //      this.postSource = postSource;
+ //  }
 
     public Comments getComments() {
         return comments;

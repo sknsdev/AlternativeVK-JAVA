@@ -20,15 +20,15 @@ public class ApplicationModule {
     }
 
 
-    @Singleton //будет всего 1 экз
-    @Provides //показывает, что объект нужен для внедрения зависимости, для будущего инжекта
+    @Singleton //всего 1 экз
+    @Provides // объект нужен для внедрения зависимости, для будущего инжекта
     public Context provideContext(){
         return mApplication;
     }
     @Singleton
     @Provides
     Typeface provideGoogleTypeFace(Context context){
-        return Typeface.createFromAsset(context.getAssets(),"MaterialIcons-regular.ttf");
+        return Typeface.createFromAsset(context.getAssets(),"MaterialIcons-Regular.ttf");
     }
 
 }

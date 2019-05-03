@@ -13,7 +13,8 @@ public abstract class BaseViewModel {
     public abstract LayoutTypes getType();
 
     public BaseViewHolder createViewHolder(ViewGroup parent){
-        return onCreateViewHolder(LayoutInflater.from(parent.getContext()).inflate(getType().getValue(),parent,false));
+        return onCreateViewHolder(LayoutInflater.from(parent.getContext())
+                .inflate(getType().getValue(),parent,false));
     }
 
     protected abstract BaseViewHolder onCreateViewHolder(View view);

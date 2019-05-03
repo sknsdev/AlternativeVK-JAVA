@@ -3,8 +3,7 @@ package com.vlasov.alternativevk.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-public class Group {
+public class Group implements Owner{
 
     @SerializedName("id")
     @Expose
@@ -24,15 +23,9 @@ public class Group {
     @SerializedName("is_admin")
     @Expose
     private Integer isAdmin;
-    @SerializedName("admin_level")
-    @Expose
-    private Integer adminLevel;
     @SerializedName("is_member")
     @Expose
     private Integer isMember;
-    @SerializedName("is_advertiser")
-    @Expose
-    private Integer isAdvertiser;
     @SerializedName("photo_50")
     @Expose
     private String photo50;
@@ -43,7 +36,7 @@ public class Group {
     @Expose
     private String photo200;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
@@ -91,28 +84,12 @@ public class Group {
         this.isAdmin = isAdmin;
     }
 
-    public Integer getAdminLevel() {
-        return adminLevel;
-    }
-
-    public void setAdminLevel(Integer adminLevel) {
-        this.adminLevel = adminLevel;
-    }
-
     public Integer getIsMember() {
         return isMember;
     }
 
     public void setIsMember(Integer isMember) {
         this.isMember = isMember;
-    }
-
-    public Integer getIsAdvertiser() {
-        return isAdvertiser;
-    }
-
-    public void setIsAdvertiser(Integer isAdvertiser) {
-        this.isAdvertiser = isAdvertiser;
     }
 
     public String getPhoto50() {
@@ -137,6 +114,17 @@ public class Group {
 
     public void setPhoto200(String photo200) {
         this.photo200 = photo200;
+    }
+
+    @Override
+    public String getFullName() {
+        return name;
+    }
+
+
+    @Override
+    public String getPhoto() {
+        return photo100;
     }
 
 }
