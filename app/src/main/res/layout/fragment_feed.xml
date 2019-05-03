@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDefaultWhite"
-    android:fitsSystemWindows="true"
-    tools:context=".ui.fragment.NewsFeedFragment">
+    android:fitsSystemWindows="true">
+    <!--tools:context=".ui.fragment.NewsFeedFragment">-->
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical" />
 
 
