@@ -1,7 +1,7 @@
 package com.vlasov.alternativevk.di.component;
 
 
-import com.vlasov.alternativevk.NewsFeedFragment;
+import com.vlasov.alternativevk.ui.fragment.NewsFeedFragment;
 import com.vlasov.alternativevk.di.module.ApplicationModule;
 import com.vlasov.alternativevk.di.module.ManagerModule;
 import com.vlasov.alternativevk.di.module.RestModule;

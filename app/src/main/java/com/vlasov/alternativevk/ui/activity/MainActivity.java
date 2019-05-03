@@ -1,10 +1,9 @@
 package com.vlasov.alternativevk.ui.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
-import com.arellomobile.mvp.MvpAppCompatActivity;
+
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
@@ -12,17 +11,11 @@ import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
 import com.vlasov.alternativevk.CurrentUser;
 import com.vlasov.alternativevk.MyApplication;
-import com.vlasov.alternativevk.NewsFeedFragment;
+import com.vlasov.alternativevk.ui.fragment.NewsFeedFragment;
 import com.vlasov.alternativevk.R;
 import com.vlasov.alternativevk.consts.ApiConstants;
 import com.vlasov.alternativevk.mvp.presenter.MainPresenter;
 import com.vlasov.alternativevk.mvp.view.MainView;
-import com.vk.sdk.util.VKUtil;
-
-
-
-import java.util.Arrays;
-import java.util.Collections;
 
 public class MainActivity extends BaseActivity implements MainView {
 

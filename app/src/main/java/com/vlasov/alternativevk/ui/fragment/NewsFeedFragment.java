@@ -1,4 +1,4 @@
-package com.vlasov.alternativevk;
+package com.vlasov.alternativevk.ui.fragment;
 
 
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.view.View;
 
 import android.widget.Toast;
 
+import com.vlasov.alternativevk.MyApplication;
+import com.vlasov.alternativevk.R;
 import com.vlasov.alternativevk.common.BaseAdapter;
 import com.vlasov.alternativevk.common.utils.VkListHelper;
 import com.vlasov.alternativevk.model.WallItem;
@@ -37,13 +39,11 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFeedFragment extends BaseFragment {
+public class NewsFeedFragment extends BaseFeedFragment {
 
     @Inject
     WallApi mWallApi;
 
-    RecyclerView mRecyclerView;
-    BaseAdapter mBaseAdapter;
 
     public NewsFeedFragment() {
         // Required empty public constructor
@@ -76,7 +76,7 @@ public class NewsFeedFragment extends BaseFragment {
                     list.add(new NewsFeedItemBody(item));
                     list.add(new NewsItemFooterViewModel(item));
                 }
-                 mBaseAdapter.addItems(list);
+                 mAdapter.addItems(list);
               // }
               // mBaseAdapter.addItems(list);
                 Toast.makeText(getActivity(), "likes: "+ response.body().response.getItems()
@@ -91,10 +91,6 @@ public class NewsFeedFragment extends BaseFragment {
     }
 
     //-----------------------
-    @Override
-    protected int getMainContentLayout() {
-        return R.layout.fragment_feed;
-    }
 
 
 
@@ -103,26 +99,5 @@ public class NewsFeedFragment extends BaseFragment {
         return R.string.screen_name_news;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        setUpRecyclerView(view);
-        setUpAdapter(mRecyclerView);
 
-    }
-
-
-    private void setUpRecyclerView(View rootView){
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_list);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-    }
-
-
-    protected void setUpAdapter(RecyclerView recyclerView) {
-
-        mBaseAdapter = new BaseAdapter();
-
-        recyclerView.setAdapter(mBaseAdapter);
-
-    }
 }
