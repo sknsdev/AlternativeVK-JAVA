@@ -2,6 +2,7 @@ package com.vlasov.alternativevk.di.module;
 
 
 import com.vlasov.alternativevk.common.manager.MyFragmentManager;
+import com.vlasov.alternativevk.common.manager.NetworkManager;
 
 import javax.inject.Singleton;
 
@@ -15,5 +16,11 @@ public class ManagerModule {
     @Provides
     MyFragmentManager provideMyFragmentManager(){
         return new MyFragmentManager();
+    }
+
+    @Provides
+    @Singleton
+    NetworkManager provideNetworkManager() {
+        return new NetworkManager();
     }
 }

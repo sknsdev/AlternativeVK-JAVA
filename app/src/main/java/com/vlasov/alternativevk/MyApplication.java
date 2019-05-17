@@ -7,6 +7,9 @@ import com.vlasov.alternativevk.di.component.ApplicationComponent;
 import com.vlasov.alternativevk.di.component.DaggerApplicationComponent;
 import com.vlasov.alternativevk.di.module.ApplicationModule;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 //import com.vk.api.sdk.VK;
 //import com.vk.api.sdk.auth.VKScope;
 
@@ -20,10 +23,18 @@ public class MyApplication extends Application {
         super.onCreate();
         initComponent();
         VKSdk.initialize(this);
+
+        Realm.init(this);
+        RealmConfiguration realmConfiguration = new RealmConfiguration
+                .Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(realmConfiguration);
     }
 
     private void initComponent(){
-        sApplicationComponent = DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
+        sApplicationComponent = DaggerApplicationComponent.builder().applicationModule
+                (new ApplicationModule(this)).build();
     }
 
     public static ApplicationComponent getsApplicationComponent(){

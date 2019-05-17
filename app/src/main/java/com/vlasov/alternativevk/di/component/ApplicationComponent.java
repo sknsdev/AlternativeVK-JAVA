@@ -1,6 +1,8 @@
 package com.vlasov.alternativevk.di.component;
 
 
+import com.vlasov.alternativevk.common.manager.NetworkManager;
+import com.vlasov.alternativevk.mvp.presenter.NewsFeedPresenter;
 import com.vlasov.alternativevk.ui.fragment.NewsFeedFragment;
 import com.vlasov.alternativevk.di.module.ApplicationModule;
 import com.vlasov.alternativevk.di.module.ManagerModule;
@@ -26,4 +28,12 @@ public interface ApplicationComponent {
 
     void inject(NewsItemBodyHolder holder);
     void inject(NewsItemFooterHolder holder);
+
+    //presenters
+    void inject(NewsFeedPresenter presenter);
+
+
+    //managers
+    void inject(NetworkManager manager);
+
 }

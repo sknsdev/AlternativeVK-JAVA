@@ -8,12 +8,16 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.vlasov.alternativevk.model.attachment.apiAttachment;
 
-public class WallItem {
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class WallItem extends RealmObject {
     private String attachmentsString;
     private String senderName;
     private String senderPhoto;
 
-
+    @PrimaryKey
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -37,7 +41,7 @@ public class WallItem {
     private String text;
     @SerializedName("copy_history")
     @Expose
-    private List<WallItem> copyHistory = new ArrayList<>();
+    private RealmList<WallItem> copyHistory = new RealmList<>();
 
     @SerializedName("can_edit")
     @Expose
@@ -54,7 +58,7 @@ public class WallItem {
 
     @SerializedName("attachments")
     @Expose
-    private List<apiAttachment> attachments = new ArrayList<>();
+    private RealmList<apiAttachment> attachments = new RealmList<>();
  // @SerializedName("post_source")
  // @Expose
  // private PostSource_ postSource;
@@ -131,11 +135,11 @@ public class WallItem {
     }
 
 
-    public List<apiAttachment> getAttachments() {
+    public RealmList<apiAttachment> getAttachments() {
         return attachments;
     }
 
-    public void setAttachments(List<apiAttachment> attachments) {
+    public void setAttachments(RealmList<apiAttachment> attachments) {
         this.attachments = attachments;
     }
 
